@@ -8,6 +8,10 @@ app = FastAPI()
 class VideoRequest(BaseModel):
     url: str
 
+@app.get("/")
+async def root():
+    return {"message": "Server is running"}
+
 @app.post("/download")
 async def download_audio(req: VideoRequest):
     try:
